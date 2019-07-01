@@ -17,7 +17,7 @@ constructor(props) {
             selectedVideo: null,
          };
 
-        this.videoSearch('surfboards');
+        this.videoSearch('funny cats');
 }
 
 videoSearch(term){
@@ -35,10 +35,12 @@ const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
   return (
   <div>
     <SearchBar onSearchTermChange={videoSearch}/>
+    <div className="columns">
     <VideoDetail video={this.state.selectedVideo}/>
     <VideoList 
    onVideoSelect={selectedVideo => this.setState({selectedVideo})}
    videos={this.state.videos} />
+   </div>
   </div>
   );
 }
